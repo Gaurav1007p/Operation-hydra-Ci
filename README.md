@@ -94,4 +94,4 @@ for educational purposes only** and do not depict real individuals,
 organizations, malware, or financial activity. No real systems were
 scanned, accessed, or attacked in the preparation of this assignment.
 
-*Author: [Your Name] — [Student ID] — [Course/Section] — [Date]*
+*Author: [Gaurav Pandey] — [2301350011] — [Btech CSE FSD] — [25-11-2026]*
