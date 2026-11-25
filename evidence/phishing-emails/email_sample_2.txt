@@ -1,0 +1,39 @@
+SIMULATED EVIDENCE — Operation Hydra Case File
+Sample: PHISH-002
+
+--- RAW HEADERS (simulated) ---
+Return-Path: <billing@paypa1-support.com>
+Received: from vps-9931.hosting-cheap.net (45.155.205.13)
+        by mx.victimcorp.com with ESMTP id 3d8e1a0c
+        for <finance@victimcorp.com>; Tue, 12 Aug 2025 09:02:11 +0000
+Received-SPF: none (mx.victimcorp.com: no SPF record for paypa1-support.com)
+Authentication-Results: mx.victimcorp.com;
+        spf=none; dkim=fail (bad signature); dmarc=fail
+From: "PayPal Billing" <billing@paypa1-support.com>
+Reply-To: refund-team@paypa1-support.com
+To: finance@victimcorp.com
+Subject: Refund Pending - Action Required (Invoice #88213)
+Date: Tue, 12 Aug 2025 09:02:09 +0000
+Content-Type: multipart/mixed; boundary="000000000000"
+
+--- BODY (simulated) ---
+Your recent refund of INR 48,200 could not be processed. Please
+update your linked bank details using the secure form attached to
+receive your refund within 48 hours.
+
+--- ATTACHMENT ---
+Filename: Refund_Form_Invoice88213.xlsm
+SHA256: 4b6c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8091a2
+(Macro-enabled Excel — VBA macro drops second-stage payload)
+
+--- ANALYST NOTES ---
+1. Domain "paypa1-support.com" uses digit "1" in place of letter "l"
+   (typosquat), confirmed via WHOIS registration date of 6 days prior
+   to the campaign — a classic freshly-registered-domain red flag.
+2. No SPF record published at all for the sending domain.
+3. Macro-enabled attachment (.xlsm) is a common keylogger/RAT dropper
+   vector; macros disabled by default should have blocked execution,
+   suggesting a social-engineering prompt to "Enable Content" was used.
+4. Reply-To differs from sending domain but shares the same registrar
+   (Namecheap, simulated) as PHISH-001's redirect domain, suggesting
+   a common threat actor infrastructure.

@@ -1,0 +1,13 @@
+txn_id,timestamp,source_account,destination_upi_or_account,amount_inr,channel,flag,notes
+TXN10021,2025-08-13T15:02:11,VICTIM_ACC_4471,mule01@fakeupi,48200,UPI,SUSPICIOUS,Matches clipboard-hijack IOC timing
+TXN10022,2025-08-13T15:02:47,mule01@fakeupi,mule02@fakeupi,45000,UPI,SUSPICIOUS,Rapid layering - funds split within 36s
+TXN10023,2025-08-13T15:03:20,mule02@fakeupi,mule03@fakeupi,22000,UPI,SUSPICIOUS,Further layering
+TXN10024,2025-08-13T15:03:21,mule02@fakeupi,mule04@fakeupi,23000,UPI,SUSPICIOUS,Further layering (split pattern)
+TXN10025,2025-08-13T15:05:02,mule03@fakeupi,CARD_ACQUIRER_SIM_998,20500,CARD_PAYOUT,SUSPICIOUS,Converted to prepaid card top-up
+TXN10026,2025-08-13T15:06:40,mule04@fakeupi,1FakeBTCWalletHydraCase0001XyZ,23000,CRYPTO_ONRAMP,SUSPICIOUS,Simulated BTC address - laundering stage
+TXN10027,2025-08-13T18:11:09,1FakeBTCWalletHydraCase0001XyZ,1FakeBTCWalletHydraCase0002AbC,0.00041,BTC,SUSPICIOUS,Simulated on-chain hop #1
+TXN10028,2025-08-14T02:44:55,1FakeBTCWalletHydraCase0002AbC,1FakeBTCWalletHydraCase0003QqW,0.00039,BTC,SUSPICIOUS,Simulated on-chain hop #2 (mixer-style split)
+
+# NOTE: All UPI IDs, account numbers, and BTC addresses above are
+# fabricated placeholders for coursework simulation only. They do not
+# correspond to real payment instruments or blockchain addresses.

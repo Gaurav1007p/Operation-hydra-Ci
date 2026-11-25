@@ -1,0 +1,62 @@
+name: Operation Hydra CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  markdown-lint:
+    name: Markdown Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lint Markdown files
+        uses: DavidAnson/markdownlint-cli2-action@v16
+        with:
+          globs: '**/*.md'
+
+  directory-check:
+    name: Verify Required Directory Structure
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check required paths exist
+        run: |
+          required=(
+            "README.md"
+            "tools.md"
+            "report"
+            "evidence/phishing-emails"
+            "evidence/malware-iocs"
+            "evidence/financial-fraud-logs"
+            "evidence/whois-dns-records"
+            "scripts"
+            "screenshots"
+          )
+          missing=0
+          for path in "${required[@]}"; do
+            if [ ! -e "$path" ]; then
+              echo "::error::Missing required path: $path"
+              missing=1
+            fi
+          done
+          if [ "$missing" -eq 1 ]; then
+            exit 1
+          fi
+          echo "All required paths present."
+
+  python-syntax-check:
+    name: Python Script Syntax Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Compile-check all scripts
+        run: |
+          for f in scripts/*.py; do
+            python -m py_compile "$f"
+          done

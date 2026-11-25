@@ -1,0 +1,53 @@
+SIMULATED EVIDENCE — Operation Hydra Case File
+Sample: PHISH-001
+Collected From: Victim mailbox export (simulated .eml)
+
+--- RAW HEADERS (simulated) ---
+Return-Path: <security-alert@secure-hdfcbank.net>
+Received: from mail.relay-node91.ru (unknown [185.220.101.47])
+        by mx.victimcorp.com with ESMTP id 7f3a9c2e
+        for <employee@victimcorp.com>; Mon, 11 Aug 2025 03:14:22 +0000
+Received-SPF: fail (mx.victimcorp.com: domain of secure-hdfcbank.net
+        does not designate 185.220.101.47 as permitted sender)
+Authentication-Results: mx.victimcorp.com;
+        spf=fail smtp.mailfrom=secure-hdfcbank.net;
+        dkim=none (no signature found);
+        dmarc=fail (p=none) header.from=secure-hdfcbank.net
+From: "HDFC Bank Security Team" <security-alert@secure-hdfcbank.net>
+Reply-To: hdfc.verify@mailservice-support.info
+To: employee@victimcorp.com
+Subject: Urgent: Unusual login detected on your account - verify now
+Date: Mon, 11 Aug 2025 03:14:20 +0000
+Content-Type: text/html; charset="UTF-8"
+X-Originating-IP: [185.220.101.47]
+X-Mailer: PHPMailer 6.6.0
+
+--- BODY (simulated) ---
+Dear Customer,
+
+We detected an unusual login attempt on your HDFC NetBanking account
+from a new device. To prevent suspension of your account, please
+verify your identity immediately by clicking the secure link below:
+
+  hxxps://secure-hdfcbank[.]net-verify-login[.]com/auth/reset
+
+Failure to verify within 24 hours will result in a temporary block.
+
+Regards,
+HDFC Bank Security Team
+
+--- ATTACHMENT ---
+Filename: Account_Verification_Form.pdf.exe
+SHA256: 9f1c3a2b7e4d6f8091a2b3c4d5e6f7081920a3b4c5d6e7f8091a2b3c4d5e6f70
+(Note: double extension used to disguise executable as PDF — classic
+social engineering technique)
+
+--- ANALYST NOTES ---
+1. SPF/DKIM/DMARC all fail or are absent — strong spoofing indicator.
+2. Sender domain "secure-hdfcbank.net" is a lookalike/typosquat of the
+   legitimate "hdfcbank.com" domain (WHOIS below).
+3. Link domain differs from sender domain — classic redirection chain.
+4. Originating IP (185.220.101.47) resolves to a known Tor exit /
+   bulletproof-hosting range per AbuseIPDB simulated lookup.
+5. Attachment double-extension is a dropper for the RAT analyzed in
+   evidence/malware-iocs/iocs.md.

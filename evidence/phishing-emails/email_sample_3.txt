@@ -1,0 +1,31 @@
+SIMULATED EVIDENCE — Operation Hydra Case File
+Sample: PHISH-003
+
+--- RAW HEADERS (simulated) ---
+Return-Path: <it-helpdesk@victimc0rp-it.com>
+Received: from mail-relay-77.bulletproof-host.net (103.224.182.9)
+        by mx.victimcorp.com with ESMTP id 1a2b3c4d
+        for <allstaff@victimcorp.com>; Wed, 13 Aug 2025 14:47:03 +0000
+Received-SPF: fail
+Authentication-Results: mx.victimcorp.com;
+        spf=fail; dkim=none; dmarc=fail
+From: "IT Helpdesk" <it-helpdesk@victimc0rp-it.com>
+To: allstaff@victimcorp.com
+Subject: Mandatory: Password Expiry - Reset Before 5PM Today
+Date: Wed, 13 Aug 2025 14:47:00 +0000
+
+--- BODY (simulated) ---
+Your VictimCorp network password expires today. Reset now to avoid
+lockout: hxxps://victimc0rp-it[.]com/sso/reset (internal-style spoofed
+portal cloned from the real SSO login page).
+
+--- ANALYST NOTES ---
+1. This is an internal-spoofing / business-email-compromise (BEC)
+   style attack — domain "victimc0rp-it.com" substitutes a zero for
+   the letter "o" to impersonate the organization's own IT domain.
+2. Cloned SSO login page was used to harvest employee credentials,
+   which were later reused for the unauthorized-access stage of the
+   campaign (see Section 1 of the report — credential reuse chain).
+3. Sent to a distribution list ("allstaff@") rather than a targeted
+   individual — consistent with a spray-and-harvest phishing pattern
+   feeding the later spear-phished financial-fraud stage.
